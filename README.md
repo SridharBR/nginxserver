@@ -31,7 +31,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 kubeadm join --token <token> <master-ip>:<master-port>
 ```
 
-## Deploy Nginx server on the kubernets cluster
+## Deploy Nginx server on the kubernetes cluster
 
 ### Create roles
 Define the roles that are permitted on the namespace in which the nginx will be deployed
@@ -51,12 +51,12 @@ kubectl create -f nginx_rolebindings.yaml
 Expose nginx server to listen to port "90" outside the cluster and map it to port "80" within the cluster.
 
 ```
-kubectl -f apply nginx_service.yaml
+kubectl apply -f nginx_service.yaml
 ```
 
 ### Create a deployment
 Deploy the nginx server using the deployment configuration file
 
 ```
-kubectl -f apply nginx_deployment.yaml
+kubectl apply -f nginx_deployment.yaml
 ```
