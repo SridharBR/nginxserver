@@ -4,7 +4,7 @@ This project contains steps to configure a local kubernetes cluster, steps and c
 It also has roles to control access on kubernetes resources to specific users.
 
 ## Create a local cluster using kubeadm
-Below are some of the basic and essential steps to setup a simple kubernetes cluster
+Below are the essential steps to setup a simple kubernetes cluster
 
 ### Initialise control plane
 ```
@@ -31,14 +31,30 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 kubeadm join --token <token> <master-ip>:<master-port>
 ```
 
-## Create a service
+## Deploy Nginx server on the kubernets cluster
+
+### Create roles
+Define the roles that are permitted on the namespace in which the nginx will be deployed
+
+```
+kubectl create -f nginx_roles.yaml
+```
+
+### Create role bindings 
+Bind the roles to specific users on a particular namespace
+
+```
+kubectl create -f nginx_rolebindings.yaml
+```
+
+### Create a service
 Expose nginx server to listen to port "90" outside the cluster and map it to port "80" within the cluster.
 
 ```
 kubectl -f apply nginx_service.yaml
 ```
 
-## Create a deployment
+### Create a deployment
 Deploy the nginx server using the deployment configuration file
 
 ```
