@@ -1,6 +1,7 @@
-# nginxserver : Deploy nginx server using kubectl
+# nginxserver : Deploy nginx server on a kubernetes cluster
 
-This project contains configuration files to deploy nginx server on a kubernetes cluster using kubectl. It also has roles to control access on resources to specific users.
+This project contains steps to configure a local kubernetes cluster, steps and configuration files to deploy nginx server on the kubernetes cluster.
+It also has roles to control access on kubernetes resources to specific users.
 
 ## Create a local cluster using kubeadm
 Below are some of the basic and essential steps to setup a simple kubernetes cluster
