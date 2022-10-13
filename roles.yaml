@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: kubedemo
+  name: userRole
+rules:
+  - apiGroups: ["rbac.authorization.k8s.io"] # "" indicates the core API group
+    resources: ["pods", "deployments"]
+    verbs: ["create", "get", "list", "delete"]
